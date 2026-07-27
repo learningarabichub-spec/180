@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>180 Days of Powerful Arabic — Ustadh Rami</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#17243c;
+    --secondary:#eab830;
+    --bg:#f7f2ea;
+    --heading:#0F172A;
+    --text:#304352;
+    --white:#ffffff;
+    --line: rgba(23,36,60,0.12);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Poppins',sans-serif;
+    font-weight:400;
+    font-size:18px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Playfair Display',serif;
+    color:var(--heading);
+    margin:0;
+  }
+  .arabic{ font-family:'Amiri','Poppins',serif; direction:rtl; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(234,184,48,0.16) 0%, transparent 45%),
+      radial-gradient(circle at 85% 80%, rgba(234,184,48,0.12) 0%, transparent 45%),
+      var(--primary);
+    color:#fdf9f0;
+    padding:56px 24px 48px;
+    text-align:center;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(234,184,48,0.05) 0 2px, transparent 2px 26px),
+      repeating-linear-gradient(-45deg, rgba(234,184,48,0.05) 0 2px, transparent 2px 26px);
+    pointer-events:none;
+  }
+  .hero-inner{ position:relative; z-index:1; max-width:760px; margin:0 auto; }
+  .brand-line{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:'Poppins',sans-serif; font-size:15px; letter-spacing:3px;
+    text-transform:uppercase; color:var(--secondary); font-weight:600;
+    margin-bottom:18px;
+  }
+  .brand-line .dot{ width:6px; height:6px; border-radius:50%; background:var(--secondary); }
+  .hero h1{
+    color:#fdf9f0; font-size:clamp(34px,6vw,58px); font-weight:700; margin-bottom:12px;
+  }
+  .hero .ar-title{ font-size:clamp(26px,5vw,36px); color:var(--secondary); margin-bottom:20px; }
+  .hero p.sub{
+    font-size:18px; color:rgba(253,249,240,0.8); max-width:600px; margin:0 auto 30px;
+    font-weight:300;
+  }
+  .hero .byline{ font-size:15px; color:rgba(253,249,240,0.6); margin-top:8px; letter-spacing:0.5px;}
+
+  /* seal / day badge */
+  .seal-wrap{ display:flex; justify-content:center; margin:6px 0 30px; }
+  .seal{
+    position:relative; width:150px; height:150px;
+    display:flex; align-items:center; justify-content:center;
+    flex-direction:column;
+  }
+  .seal svg{ position:absolute; inset:0; width:100%; height:100%; }
+  .seal .num{ font-family:'Playfair Display',serif; font-size:42px; font-weight:800; color:var(--secondary); line-height:1;}
+  .seal .lbl{ font-size:11px; letter-spacing:2px; text-transform:uppercase; color:rgba(253,249,240,0.75); margin-top:6px;}
+
+  .progress-track{
+    max-width:420px; margin:0 auto; background:rgba(255,255,255,0.12);
+    border-radius:20px; height:8px; overflow:hidden;
+  }
+  .progress-fill{
+    height:100%; background:linear-gradient(90deg,var(--secondary),#f6d576);
+    border-radius:20px; transition:width .5s ease; width:0%;
+  }
+  .progress-label{ font-size:15px; color:rgba(253,249,240,0.7); margin-top:12px; }
+
+  /* ---------- NAV / MONTH TABS ---------- */
+  .container{ max-width:980px; margin:0 auto; padding:0 20px; }
+  .tabs-wrap{
+    position:sticky; top:0; z-index:20; background:var(--bg);
+    border-bottom:1px solid var(--line);
+    padding:14px 0;
+  }
+  .tabs{
+    display:flex; gap:8px; overflow-x:auto; padding:0 4px; scrollbar-width:none;
+  }
+  .tabs::-webkit-scrollbar{ display:none; }
+  .tab{
+    flex:0 0 auto; cursor:pointer; border:1.5px solid var(--line);
+    background:var(--white); border-radius:12px; padding:11px 18px;
+    font-size:16px; font-weight:500; color:var(--text);
+    display:flex; align-items:center; gap:8px; white-space:nowrap;
+    transition:all .18s ease;
+  }
+  .tab:hover{ border-color:var(--secondary); }
+  .tab.active{
+    background:var(--primary); color:#fdf9f0; border-color:var(--primary);
+  }
+  .tab .icon{ font-size:18px; }
+  .tab .cnt{
+    font-size:13px; background:rgba(0,0,0,0.08); border-radius:8px; padding:3px 7px;
+  }
+  .tab.active .cnt{ background:rgba(234,184,48,0.35); }
+
+  .search-row{ display:flex; gap:10px; margin:18px 0 6px; }
+  .search-input{
+    flex:1; border:1.5px solid var(--line); border-radius:10px; padding:13px 16px;
+    font-family:'Poppins',sans-serif; font-size:17px; background:var(--white); color:var(--text);
+  }
+  .search-input:focus{ outline:none; border-color:var(--secondary); }
+
+  /* ---------- MONTH HEADER ---------- */
+  .month-head{ padding:26px 0 8px; }
+  .month-head .eyebrow{
+    font-size:13px; letter-spacing:2px; text-transform:uppercase; color:var(--secondary); font-weight:700;
+  }
+  .month-head h2{ font-size:32px; margin:6px 0 4px; }
+  .month-head .ar{ font-size:24px; color:var(--primary); margin-bottom:10px; }
+  .month-head .desc{ font-size:16.5px; color:var(--text); opacity:0.85; max-width:640px; }
+
+  /* ---------- DAY GRID ---------- */
+  .grid{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(78px,1fr));
+    gap:11px; margin:18px 0 40px;
+  }
+  .day-cell{
+    aspect-ratio:1; border-radius:12px; border:1.5px solid var(--line);
+    background:var(--white); display:flex; align-items:center; justify-content:center;
+    cursor:pointer; font-weight:600; font-size:19px; color:var(--text);
+    position:relative; transition:transform .15s ease, border-color .15s ease, background .15s ease;
+  }
+  .day-cell:hover{ transform:translateY(-2px); border-color:var(--secondary); }
+  .day-cell.done{
+    background:var(--primary); color:var(--secondary); border-color:var(--primary);
+  }
+  .day-cell.done::after{
+    content:"✓"; position:absolute; top:-7px; right:-7px; width:20px; height:20px;
+    background:var(--secondary); color:var(--primary); border-radius:50%;
+    font-size:11px; display:flex; align-items:center; justify-content:center; font-weight:900;
+  }
+
+  /* ---------- CARD / MODAL ---------- */
+  .overlay{
+    position:fixed; inset:0; background:rgba(15,23,42,0.55); z-index:100;
+    display:none; align-items:flex-start; justify-content:center; padding:30px 16px;
+    overflow-y:auto;
+  }
+  .overlay.open{ display:flex; }
+  .card{
+    background:var(--white); border-radius:18px; max-width:640px; width:100%;
+    padding:0; margin-top:20px; box-shadow:0 30px 60px rgba(0,0,0,0.25);
+    animation:rise .25s ease;
+  }
+  @keyframes rise{ from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);} }
+  .card-top{
+    background:var(--primary); color:#fdf9f0; padding:24px 28px; border-radius:18px 18px 0 0;
+    position:relative;
+  }
+  .card-top .day-tag{
+    font-size:14px; letter-spacing:2px; text-transform:uppercase; color:var(--secondary); font-weight:700;
+  }
+  .card-top .month-tag{ font-size:14px; color:rgba(253,249,240,0.65); margin-top:4px; }
+  .card-close{
+    position:absolute; top:18px; right:20px; cursor:pointer; color:rgba(253,249,240,0.7);
+    font-size:26px; line-height:1; background:none; border:none;
+  }
+  .card-close:hover{ color:var(--secondary); }
+  .card-body{ padding:30px 28px 32px; }
+  .card-ar{
+    font-family:'Amiri',serif; direction:rtl; font-size:42px; color:var(--primary);
+    text-align:right; margin-bottom:10px; line-height:1.5;
+  }
+  .card-tr{ font-size:16px; color:var(--text); opacity:0.7; font-style:italic; margin-bottom:16px; }
+  .card-meaning{ font-size:20px; font-weight:600; color:var(--heading); margin-bottom:16px; }
+  .card-section-label{
+    font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:var(--secondary); font-weight:700;
+    margin-bottom:8px; margin-top:22px;
+  }
+  .card-insight{ font-size:17.5px; color:var(--text); line-height:1.65; }
+  .card-example{
+    background:var(--bg); border-radius:10px; padding:16px 18px; margin-top:10px;
+  }
+  .card-example .ex-ar{ font-family:'Amiri',serif; direction:rtl; font-size:24px; color:var(--primary); margin-bottom:6px; }
+  .card-example .ex-en{ font-size:16px; color:var(--text); opacity:0.85; }
+  .card-actions{ display:flex; gap:10px; margin-top:26px; }
+  .btn{
+    flex:1; border:none; border-radius:10px; padding:14px 18px; font-family:'Poppins',sans-serif;
+    font-size:16px; font-weight:600; cursor:pointer; transition:transform .12s ease, opacity .12s ease;
+  }
+  .btn:active{ transform:scale(0.97); }
+  .btn-primary{ background:var(--secondary); color:var(--primary); }
+  .btn-primary:hover{ opacity:0.9; }
+  .btn-ghost{ background:var(--bg); color:var(--text); border:1.5px solid var(--line); }
+  .btn-ghost:hover{ border-color:var(--secondary); }
+  .btn-nav{ background:transparent; color:var(--primary); border:1.5px solid var(--line); flex:0 0 auto; width:50px; font-size:20px; }
+  .btn-nav:hover{ border-color:var(--secondary); }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    text-align:center; padding:36px 20px 50px; color:var(--text); opacity:0.65; font-size:14px;
+  }
+  footer .fname{ font-family:'Playfair Display',serif; font-size:18px; color:var(--primary); opacity:1; margin-bottom:6px; }
+
+  @media (max-width:480px){
+    .grid{ grid-template-columns:repeat(auto-fill, minmax(52px,1fr)); }
+    .card-ar{ font-size:26px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="brand-line"><span class="dot"></span>LEARNING ARABIC HUB<span class="dot"></span></div>
+    <h1>180 Days of Powerful Arabic</h1>
+    <div class="ar-title arabic">١٨٠ يومًا من العربية القوية</div>
+
+    <div class="seal-wrap">
+      <div class="seal">
+        <svg viewBox="0 0 132 132">
+          <polygon points="66,8 78,24 98,20 100,40 118,49 108,67 118,85 100,94 98,114 78,110 66,126 54,110 34,114 32,94 14,85 24,67 14,49 32,40 34,20 54,24"
+            fill="none" stroke="#eab830" stroke-width="1.4" opacity="0.85"/>
+          <circle cx="66" cy="66" r="46" fill="none" stroke="#eab830" stroke-width="1" opacity="0.4"/>
+        </svg>
+        <div class="num" id="dayCounterNum">1</div>
+        <div class="lbl">Day / يوم</div>
+      </div>
+    </div>
+
+    <p class="sub">One powerful, unique piece of Arabic every single day for six months — roots, Qur'anic gems, proverbs, soul-words, real spoken phrases, and the art of eloquence.</p>
+
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-label" id="progressLabel">0 of 180 days learned</div>
+
+    <div class="byline">Curated by Ustadh Rami · Learning Arabic Hub</div>
+  </div>
+</div>
+
+<div class="tabs-wrap">
+  <div class="container">
+    <div class="tabs" id="tabsRow"></div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="search-row">
+    <input class="search-input" id="searchInput" type="text" placeholder="Search all 180 days — English, Arabic, or transliteration…">
+  </div>
+  <div id="monthHeadWrap"></div>
+  <div class="grid" id="dayGrid"></div>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="card" id="card"></div>
+</div>
+
+<footer>
+  <div class="fname">Ustadh Rami</div>
+  Learning Arabic Hub — learningarabichub.com<br>
+  Your progress is saved automatically on this device.
+</footer>
+
+<script>
+const DATA = 
+[{"id":1,"nameAr":"جذور القوة","nameEn":"Power Roots","icon":"🌳","descAr":"كل يوم جذر ثلاثي واحد، وكيف تتفرّع منه عائلة كاملة من الكلمات القوية.","descEn":"One three-letter root a day — and the whole family of powerful words it grows.","entries":[{"day":1,"ar":"ع-ل-م","tr":"ʿ-l-m","meaning":"Knowledge, marking, signaling","insight":"علم isn't just knowledge — it's a root about making something known and visible. عَالَم (the world) is 'that which makes God known'; عَلَم is a flag, a landmark.","ex":"هو عَالِمٌ يُحبّ نشر العلم.","exTr":"He is a scholar who loves spreading knowledge."},{"day":2,"ar":"ق-د-ر","tr":"q-d-r","meaning":"Capability, measure, destiny","insight":"قَدَر (destiny) and قُدرة (ability) share one root — in Arabic, your capacity and your fate are linguistically the same idea: what you're measured to carry.","ex":"الله على كل شيء قدير.","exTr":"God is capable over all things."},{"day":3,"ar":"ح-ب-ب","tr":"ḥ-b-b","meaning":"Love, seed, grain","insight":"حَبّة means a single seed — love (حُبّ) in Arabic is imagined as something planted, small at first, that grows.","ex":"زرع في قلبها حبًّا صادقًا.","exTr":"He planted true love in her heart."},{"day":4,"ar":"ر-ح-م","tr":"r-ḥ-m","meaning":"Mercy, womb","insight":"رَحِم (womb) and رحمة (mercy) share a root — Arabic ties mercy to the shelter and nurture of a mother's womb.","ex":"رحمته واسعة لا حدود لها.","exTr":"His mercy is vast, without limits."},{"day":5,"ar":"ص-ب-ر","tr":"ṣ-b-r","meaning":"Patience, holding fast","insight":"صَبْر originally means binding or holding something in place — patience in Arabic isn't passive waiting, it's active restraint.","ex":"اصبر، فالفرج قريب.","exTr":"Be patient, relief is near."},{"day":6,"ar":"ع-ز-ز","tr":"ʿ-z-z","meaning":"Might, rarity, dignity","insight":"عزيز means both 'mighty' and 'rare/precious' — in this root, true strength and scarcity are the same value.","ex":"أنت عزيز عليّ.","exTr":"You are dear to me."},{"day":7,"ar":"س-ل-م","tr":"s-l-m","meaning":"Peace, safety, submission","insight":"From this root come سلام (peace), إسلام (submission to God), and سليم (sound/whole) — safety, wholeness, and surrender all meet here.","ex":"دخل البيت بسلام.","exTr":"He entered the house safely."},{"day":8,"ar":"ك-ر-م","tr":"k-r-m","meaning":"Generosity, nobility","insight":"كريم means generous, but also 'noble' — in Arabic culture, generosity IS the proof of noble character, not separate from it.","ex":"استقبلنا بكرم حاتمي.","exTr":"He welcomed us with Hatim-like generosity."},{"day":9,"ar":"ح-ك-م","tr":"ḥ-k-m","meaning":"Wisdom, judgment, reins","insight":"The same root gives حِكمة (wisdom) and حَكَمَة (a horse's bridle) — wisdom in Arabic is imagined as what reins in impulse.","ex":"في قوله حكمة بالغة.","exTr":"In his words is far-reaching wisdom."},{"day":10,"ar":"ج-ه-د","tr":"j-h-d","meaning":"Effort, struggle","insight":"جِهاد means struggle/exertion of any kind — the root is about pouring out effort, only later narrowed by context to specific struggles.","ex":"بذل جهده في عمله.","exTr":"He gave his full effort in his work."},{"day":11,"ar":"ع-م-ل","tr":"ʿ-m-l","meaning":"Work, deed, action","insight":"عمل covers both a job and a moral deed — in Arabic, what you do for a living and what you do for your soul are the same word.","ex":"العمل الصالح لا يضيع.","exTr":"A good deed is never wasted."},{"day":12,"ar":"ن-ص-ر","tr":"n-ṣ-r","meaning":"Victory, help","insight":"نصر means both victory and the help that brings it — you cannot win in Arabic without first being aided.","ex":"نصر الله المظلوم.","exTr":"God gave victory to the wronged one."},{"day":13,"ar":"ف-ت-ح","tr":"f-t-ḥ","meaning":"Opening, conquest","insight":"فتح is a literal opening — of a door, a book, a land. Conquest in classical Arabic is framed as an 'opening', not a closing-off.","ex":"الله يفتح أبواب الرزق.","exTr":"God opens the doors of provision."},{"day":14,"ar":"ش-ك-ر","tr":"sh-k-r","meaning":"Gratitude","insight":"شُكر is linked to the idea of an animal fattening from little fodder — gratitude is what grows abundantly from a small given good.","ex":"من لا يشكر الناس لا يشكر الله.","exTr":"Whoever doesn't thank people doesn't thank God."},{"day":15,"ar":"ذ-ك-ر","tr":"dh-k-r","meaning":"Remembrance, mention","insight":"ذِكر is remembrance by speech — in this root, to truly remember something is to keep saying it, not just to hold it silently in mind.","ex":"أكثِر من ذكر الله.","exTr":"Increase your remembrance of God."},{"day":16,"ar":"خ-ل-ق","tr":"kh-l-q","meaning":"Creation, character","insight":"خَلْق (creation) and خُلُق (character) are the same root — your character is quite literally your inner 'creation', shaped like the body.","ex":"حسن الخُلُق زينة الإنسان.","exTr":"Good character is a person's true adornment."},{"day":17,"ar":"ق-ل-ب","tr":"q-l-b","meaning":"Heart, turning, flipping","insight":"قَلْب means heart, but also 'to flip/overturn' — the Arabic heart is named for its instability, its tendency to turn.","ex":"قلبه بين إصبعين من أصابع الرحمن.","exTr":"His heart is between two fingers of the Merciful."},{"day":18,"ar":"ع-ق-ل","tr":"ʿ-q-l","meaning":"Intellect, restraint, rope","insight":"عَقْل (mind) comes from 'aqala, to tie or hobble a camel — the intellect is what restrains you, like a rope on wild instinct.","ex":"استعمل عقلك قبل قلبك.","exTr":"Use your mind before your heart."},{"day":19,"ar":"ح-ي-ي","tr":"ḥ-y-y","meaning":"Life, greeting, modesty","insight":"From this root: حياة (life), تحية (greeting), and حياء (modesty) — to greet someone is literally to wish them life.","ex":"حياك الله في بيتنا.","exTr":"May God give you life [welcome] in our home."},{"day":20,"ar":"م-و-ت","tr":"m-w-t","meaning":"Death, stillness","insight":"موت is the root of stillness and end — but in Arabic it's also used for the dying-down of wind, fire, or noise, extending death into a general image of ceasing.","ex":"ماتت الريح فجأة.","exTr":"The wind suddenly died down."},{"day":21,"ar":"ن-و-ر","tr":"n-w-r","meaning":"Light","insight":"نور is light that illuminates from within, distinct from ضوء (reflected light) — a منارة (lighthouse/minaret) is a source, not a mirror.","ex":"نوّر الله قبره.","exTr":"May God illuminate his grave."},{"day":22,"ar":"ظ-ل-م","tr":"ẓ-l-m","meaning":"Darkness, injustice","insight":"ظُلْمة (darkness) and ظُلْم (injustice/oppression) share a root — in Arabic thought, wrongdoing is a form of darkness, putting things where they don't belong.","ex":"الظلم ظلمات يوم القيامة.","exTr":"Injustice is layers of darkness on the Day of Judgment."},{"day":23,"ar":"ح-ق-ق","tr":"ḥ-q-q","meaning":"Truth, right, reality","insight":"حق means truth, right, and reality all at once — what is 'haqq' is what is real, deserved, and true, three ideas Arabic refuses to separate.","ex":"لكل إنسان حقوقه.","exTr":"Every person has their rights."},{"day":24,"ar":"ب-ط-ل","tr":"b-ṭ-l","meaning":"Falsehood, hero, void","insight":"Strikingly, باطل (falsehood) and بطل (hero) share a root — a hero is one who voids/nullifies falsehood, cancelling it by force.","ex":"جاء الحق وزهق الباطل.","exTr":"Truth has come, and falsehood has vanished."},{"day":25,"ar":"س-ع-د","tr":"s-ʿ-d","meaning":"Happiness, good fortune","insight":"سعادة is happiness tied to fortune arriving from outside you, not just an internal state — hence its link to good omens and luck in older usage.","ex":"أسعده النجاح في عمله.","exTr":"Success in his work made him happy."},{"day":26,"ar":"ح-ز-ن","tr":"ḥ-z-n","meaning":"Sadness, roughness","insight":"The root's older sense is rugged, rocky ground — sadness in Arabic is imagined as terrain that is hard and uneven to walk.","ex":"لا تحزن، إن الله معنا.","exTr":"Do not grieve, God is with us."},{"day":27,"ar":"ق-و-ي","tr":"q-w-y","meaning":"Strength","insight":"قوة is strength as raw capacity, contrasted with عزة (strength as dignity/might) — this root is closer to physical or structural power.","ex":"قوّة الإيمان تهزم الخوف.","exTr":"The strength of faith defeats fear."},{"day":28,"ar":"ض-ع-ف","tr":"ḍ-ʿ-f","meaning":"Weakness, doubling","insight":"Remarkably, ضِعف also means 'double' — the same root that names weakness also names multiplication, since doubling a number was seen as adding weak, uneven parts.","ex":"الإنسان خُلق ضعيفًا.","exTr":"Man was created weak."},{"day":29,"ar":"ج-م-ل","tr":"j-m-l","meaning":"Beauty, camel, sum","insight":"From this one root: جميل (beautiful), جَمَل (camel — 'the beautiful/sturdy one'), and جُملة (a sentence, a 'sum' of words) — beauty, endurance, and wholeness converge.","ex":"جمال الكلام في صدقه.","exTr":"The beauty of speech is in its truthfulness."},{"day":30,"ar":"ر-ز-ق","tr":"r-z-q","meaning":"Provision, sustenance","insight":"رزق is anything given to sustain you — not just money, but health, time, and opportunity are all 'rizq' in the Arabic worldview.","ex":"الرزق بيد الله وحده.","exTr":"Provision is in God's hand alone."}]},{"id":2,"nameAr":"جواهر الفصحى","nameEn":"Classical Gems","icon":"💎","descAr":"كلمة واحدة كل يوم من التراث الفصيح — كلمات لا تُترجم بسهولة إلى أي لغة أخرى.","descEn":"One classical word a day — concepts that barely survive translation into English.","entries":[{"day":31,"ar":"طُمَأْنِينَة","tr":"tumaʾnīna","meaning":"A settled, unshakeable inner calm","insight":"Not just 'calm' — it's the specific stillness that follows certainty, the heart finally coming to rest after search or fear.","ex":"تملّكته طمأنينة غريبة بعد الدعاء.","exTr":"A strange tranquility overtook him after praying."},{"day":32,"ar":"يُسْر","tr":"yusr","meaning":"Ease that follows hardship, by design","insight":"Not luck, not comfort — yusr is the structural ease built into difficulty itself, the door already placed inside the wall.","ex":"مع العسر يُسر.","exTr":"With hardship comes ease."},{"day":33,"ar":"فَرَج","tr":"faraj","meaning":"The sudden opening after constriction","insight":"Faraj is relief as a literal 'gap' appearing in what was sealed shut — trouble ending not gradually, but by a crack of light appearing.","ex":"انتظر الفرج بصبر.","exTr":"He waited for relief with patience."},{"day":34,"ar":"بَرَكَة","tr":"baraka","meaning":"Expansive, self-multiplying good","insight":"Barakah isn't 'more' — it's when a small amount does the work of a large one, when time or money 'stretches' beyond its size.","ex":"في وقته بركة رغم قلته.","exTr":"There is baraka in his time despite how little of it there is."},{"day":35,"ar":"إِحْسَان","tr":"iḥsān","meaning":"Excellence performed as if watched by God","insight":"More than 'kindness' — ihsan is doing something with the highest possible quality, as an act of devotion, whether or not anyone is watching.","ex":"أتقن عمله بإحسان.","exTr":"He perfected his work with excellence."},{"day":36,"ar":"تَقْوَى","tr":"taqwā","meaning":"A God-consciousness that shields the self","insight":"From وقى, 'to shield' — taqwa is an inner guard the heart wears, not fear of punishment but constant awareness that quietly protects behavior.","ex":"التقوى ميزان القلوب.","exTr":"God-consciousness is the scale of hearts."},{"day":37,"ar":"تَوَكُّل","tr":"tawakkul","meaning":"Active reliance after full effort","insight":"Not passive fatalism — tawakkul is doing everything humanly possible, then releasing the outcome entirely into God's hands.","ex":"اعمل ثم توكّل على الله.","exTr":"Act, then place your reliance in God."},{"day":38,"ar":"صِدْق","tr":"ṣidq","meaning":"Truthfulness that matches inner reality","insight":"Sidq is deeper than 'not lying' — it's total alignment between what's in the heart, what's said, and what's done.","ex":"الصدق ينجي صاحبه.","exTr":"Truthfulness saves the one who holds it."},{"day":39,"ar":"إِخْلَاص","tr":"ikhlāṣ","meaning":"Sincerity purified of any other motive","insight":"From 'to purify' — ikhlas means an act is done for one reason alone, with no trace of showing off or seeking praise mixed in.","ex":"قليل بإخلاص خير من كثير برياء.","exTr":"A little with sincerity is better than much with showing off."},{"day":40,"ar":"عَزِيمَة","tr":"ʿazīma","meaning":"Firm resolve that has already decided","insight":"Azimah is past the stage of intending — it is the moment a decision has hardened into unshakeable resolve, no longer up for debate.","ex":"شحذ عزيمته لتحقيق حلمه.","exTr":"He sharpened his resolve to achieve his dream."},{"day":41,"ar":"هِمَّة","tr":"himma","meaning":"The ambition that refuses small goals","insight":"Himmah is the size of what your soul reaches for — classical Arabic prizes 'high himmah', an ambition too restless for comfort.","ex":"أصحاب الهمم العالية لا يعرفون الكلل.","exTr":"People of high ambition know no fatigue."},{"day":42,"ar":"وَفَاء","tr":"wafāʾ","meaning":"Loyalty that completes what was promised","insight":"From 'to fulfill' — wafa' is loyalty measured not by feeling but by whether the commitment was actually carried through to the end.","ex":"وفاؤه لأصدقائه مضرب المثل.","exTr":"His loyalty to his friends is proverbial."},{"day":43,"ar":"أَمَانَة","tr":"amāna","meaning":"Trust held exactly as it was given","insight":"Amanah is anything entrusted to you — an object, a secret, a duty — that you're bound to preserve unaltered until it's returned.","ex":"الوظيفة أمانة في عنقك.","exTr":"The job is a trust around your neck."},{"day":44,"ar":"حَيَاء","tr":"ḥayāʾ","meaning":"A modesty rooted in life itself","insight":"Sharing a root with life (حياة), hayaa is the instinct that restrains a person from what would shame or diminish their dignity.","ex":"الحياء من الإيمان.","exTr":"Modesty is part of faith."},{"day":45,"ar":"عَفْو","tr":"ʿafw","meaning":"Pardon that erases the trace of a wrong","insight":"Afw's root sense is 'to erase, to efface' — true pardon doesn't just forgo punishment, it wipes the record clean as if it never happened.","ex":"العفو عند المقدرة فضيلة.","exTr":"Pardon when capable [of revenge] is a virtue."},{"day":46,"ar":"قَنَاعَة","tr":"qanāʿa","meaning":"Contentment that ends the chase","insight":"Qanaa'ah is being satisfied with what one has to the point that wanting more simply stops — Arabic calls it 'a treasure that never runs out'.","ex":"القناعة كنز لا يفنى.","exTr":"Contentment is a treasure that never runs out."},{"day":47,"ar":"زُهْد","tr":"zuhd","meaning":"Detachment from what doesn't last","insight":"Not poverty or renunciation of the world — zuhd is holding worldly things loosely, so losing them costs you nothing inside.","ex":"الزهد ليس بترك الدنيا بل بتفريغ القلب منها.","exTr":"Zuhd isn't abandoning the world, but emptying the heart of it."},{"day":48,"ar":"يَقِين","tr":"yaqīn","meaning":"Certainty with no residue of doubt","insight":"Yaqeen is the highest tier of knowing — past belief, past confidence, a certainty so complete that doubt cannot even re-enter.","ex":"بلغ درجة اليقين في إيمانه.","exTr":"He reached the degree of certainty in his faith."},{"day":49,"ar":"خُشُوع","tr":"khushūʿ","meaning":"Reverent stillness of the heart, shown outwardly","insight":"Khushu' is inner humility so complete it shows physically — stillness, lowered gaze, a body that has quieted to match the heart.","ex":"صلّى بخشوع تام.","exTr":"He prayed with complete reverence."},{"day":50,"ar":"سَكِينَة","tr":"sakīna","meaning":"A divine calm that descends, not one you build","insight":"Unlike tumaʾninah (earned calm), sakinah is a stillness that comes from outside the self, often described as descending in moments of fear.","ex":"نزلت السكينة على قلبه في أشد لحظاته.","exTr":"Sakinah descended on his heart in his hardest moment."},{"day":51,"ar":"نِيَّة","tr":"niyya","meaning":"The hidden intention that defines an act's worth","insight":"In Arabic ethics, the identical outward action can be worthless or immense — the niyyah behind it is what actually weighs.","ex":"الأعمال بالنيات.","exTr":"Deeds are [judged] by intentions."},{"day":52,"ar":"فِطْرَة","tr":"fiṭra","meaning":"The original, unspoiled nature one is born with","insight":"Fitrah is the factory-setting of the human soul — an innate disposition toward good that exists before any upbringing shapes it.","ex":"كل مولود يولد على الفطرة.","exTr":"Every child is born upon the fitrah."},{"day":53,"ar":"رِضَا","tr":"riḍā","meaning":"Contented acceptance of what has already happened","insight":"Rida is not resignation — it's a positive, peaceful agreement with reality, even the parts that were painful.","ex":"الرضا بالقضاء راحة القلب.","exTr":"Acceptance of destiny is the heart's rest."},{"day":54,"ar":"شِفَاء","tr":"shifāʾ","meaning":"Healing of the whole person, not just the symptom","insight":"Shifa' covers physical, emotional, and spiritual healing in one word — Arabic doesn't split the wound into separate categories the way English does.","ex":"في القرآن شفاء لما في الصدور.","exTr":"In the Qur'an is healing for what is in the chests."},{"day":55,"ar":"فَلَاح","tr":"falāḥ","meaning":"Success so total that nothing remains to want","insight":"Falah is more than winning — it's the state of a farmer whose crop has fully come in, thriving in every sense at once.","ex":"قد أفلح من زكّاها.","exTr":"He has succeeded who purifies it [the soul]."},{"day":56,"ar":"نِعْمَة","tr":"niʿma","meaning":"A favor recognized as a gift, not an entitlement","insight":"Ni'mah only exists once it's noticed as a gift — the same circumstance felt as owed to you is not ni'mah until gratitude names it so.","ex":"كم من نعمة نجهل قيمتها.","exTr":"How many blessings whose value we don't recognize."},{"day":57,"ar":"أَجْر","tr":"ajr","meaning":"A reward earned and reserved, not yet given","insight":"Ajr implies a wage already secured for you, waiting to be collected — distinct from thawab, it emphasizes the certainty of what's owed.","ex":"أجرك محفوظ عند الله.","exTr":"Your reward is preserved with God."},{"day":58,"ar":"أَمَل","tr":"amal","meaning":"Hope that still expects, not just wishes","insight":"Amal is forward-facing expectation, distinct from raja' (hope tinged with fear) — a confident anticipation that good is still coming.","ex":"لا تفقد الأمل مهما اشتد الظلام.","exTr":"Don't lose hope no matter how dark it gets."},{"day":59,"ar":"سَلْوَى","tr":"salwā","meaning":"Comfort that consoles a specific grief","insight":"Salwa is the particular comfort that answers a loss — not general happiness, but the exact relief that soothes one wound.","ex":"وجد في القراءة سلوى بعد فقدانه.","exTr":"He found in reading a solace after his loss."},{"day":60,"ar":"طِيبَة","tr":"ṭība","meaning":"A wholesome goodness of heart and origin","insight":"Tiba describes someone whose goodness feels native, uncontrived — decency that seems to come from clean roots rather than effort.","ex":"عُرف بطيبة قلبه بين الجميع.","exTr":"He was known among everyone for the goodness of his heart."}]},{"id":3,"nameAr":"أمثال وحكم","nameEn":"Proverbs & Wisdom","icon":"🪶","descAr":"مثل عربي واحد كل يوم — حكمة قرون مكثّفة في جملة واحدة.","descEn":"One Arabic proverb a day — centuries of wisdom compressed into a single line.","entries":[{"day":61,"ar":"الصَّبْرُ مِفْتَاحُ الْفَرَجِ","tr":"aṣ-ṣabru miftāḥu l-faraj","meaning":"Patience is the key to relief.","insight":"Used to console someone mid-hardship — it frames patience not as passive suffering but as the literal mechanism that unlocks the way out.","ex":"","exTr":""},{"day":62,"ar":"مَنْ جَدَّ وَجَدَ","tr":"man jadda wajad","meaning":"Whoever strives, attains.","insight":"A rhyming pair (jadda/wajad) that makes the proverb memorable — effort and outcome are tied together as cause and guaranteed effect.","ex":"","exTr":""},{"day":63,"ar":"الْعَقْلُ السَّلِيمُ فِي الْجِسْمِ السَّلِيمِ","tr":"al-ʿaqlu s-salīmu fi l-jismi s-salīm","meaning":"A sound mind is in a sound body.","insight":"Said to encourage physical care as inseparable from mental clarity — the two 'soundnesses' are framed as one condition, not two.","ex":"","exTr":""},{"day":64,"ar":"الْوَقْتُ كَالسَّيْفِ إِنْ لَمْ تَقْطَعْهُ قَطَعَكَ","tr":"al-waqtu ka-s-sayfi in lam taqṭaʿhu qaṭaʿak","meaning":"Time is like a sword: if you don't cut with it, it cuts you.","insight":"A stark warning against wasted time, drawn from Sufi teaching — time here is not neutral, it is actively dangerous if left unused.","ex":"","exTr":""},{"day":65,"ar":"رُبَّ ضَارَّةٍ نَافِعَةٍ","tr":"rubba ḍārratin nāfiʿa","meaning":"Many a harm turns out beneficial.","insight":"Said after an apparent misfortune — reframing loss as possibly hiding a hidden gain not yet visible.","ex":"","exTr":""},{"day":66,"ar":"لَا تُؤَجِّلْ عَمَلَ الْيَوْمِ إِلَى الْغَدِ","tr":"lā tuʾajjil ʿamala l-yawmi ila l-ghad","meaning":"Don't postpone today's work to tomorrow.","insight":"The Arabic equivalent of 'don't procrastinate' — used plainly, often to a child or student putting off a task.","ex":"","exTr":""},{"day":67,"ar":"كُلُّ مَمْنُوعٍ مَرْغُوبٌ","tr":"kullu mamnūʿin marghūb","meaning":"Everything forbidden is desired.","insight":"A wry, almost cynical observation on human nature — restriction itself is what manufactures desire.","ex":"","exTr":""},{"day":68,"ar":"مَنْ طَلَبَ الْعُلَا سَهِرَ اللَّيَالِي","tr":"man ṭalaba l-ʿulā sahira l-layālī","meaning":"Whoever seeks the heights stays up through the nights.","insight":"From classical poetry (al-Mutanabbi) — greatness is framed as something that always costs sleep, never comes free.","ex":"","exTr":""},{"day":69,"ar":"الْجَارُ قَبْلَ الدَّارِ","tr":"al-jāru qabla d-dār","meaning":"The neighbor before the house.","insight":"An old piece of advice for choosing where to live — a good neighbor matters more than the property itself.","ex":"","exTr":""},{"day":70,"ar":"الْقَنَاعَةُ كَنْزٌ لَا يَفْنَى","tr":"al-qanāʿatu kanzun lā yafnā","meaning":"Contentment is a treasure that never runs out.","insight":"Used to console someone with modest means — unlike money, contentment cannot be spent down or lost.","ex":"","exTr":""},{"day":71,"ar":"خَيْرُ الْكَلَامِ مَا قَلَّ وَدَلَّ","tr":"khayru l-kalāmi mā qalla wa dall","meaning":"The best speech is what is short and clear.","insight":"A guiding principle of Arabic rhetoric itself — brevity that still points precisely at meaning beats long-windedness.","ex":"","exTr":""},{"day":72,"ar":"دِرْهَمُ وِقَايَةٍ خَيْرٌ مِنْ قِنْطَارِ عِلَاجٍ","tr":"dirhamu wiqāyatin khayrun min qinṭāri ʿilāj","meaning":"A gram of prevention is better than a ton of cure.","insight":"The Arabic cousin of 'an ounce of prevention' — used especially in health and safety contexts.","ex":"","exTr":""},{"day":73,"ar":"إِنَّ غَدًا لِنَاظِرِهِ قَرِيبٌ","tr":"inna ghadan li-nāẓirihi qarīb","meaning":"Indeed, tomorrow is near for the one watching for it.","insight":"Used as a warning that consequences — good or bad — are coming faster than one expects; the future is closer than it feels.","ex":"","exTr":""},{"day":74,"ar":"مَنْ صَبَرَ ظَفِرَ","tr":"man ṣabara ẓafir","meaning":"Whoever is patient, wins.","insight":"A tight, four-word proverb prized for its economy — patience isn't just noble here, it's presented as a guaranteed strategy for victory.","ex":"","exTr":""},{"day":75,"ar":"اتَّقِ شَرَّ مَنْ أَحْسَنْتَ إِلَيْهِ","tr":"ittaqi sharra man aḥsanta ilayh","meaning":"Beware the harm of the one you were good to.","insight":"A cynical warning about ingratitude — kindness sometimes breeds resentment rather than loyalty, so stay alert.","ex":"","exTr":""},{"day":76,"ar":"الطُّيُورُ عَلَى أَشْكَالِهَا تَقَعُ","tr":"aṭ-ṭuyūru ʿalā ashkālihā taqaʿ","meaning":"Birds of a feather land together.","insight":"Used exactly like its English equivalent — people gravitate toward others similar to themselves, for better or worse.","ex":"","exTr":""},{"day":77,"ar":"رَأْسُ الْحِكْمَةِ مَخَافَةُ اللَّهِ","tr":"raʾsu l-ḥikmati makhāfatu llāh","meaning":"The head of wisdom is fear of God.","insight":"Positions God-consciousness as the foundation all other wisdom builds upon — without it, wisdom has no root.","ex":"","exTr":""},{"day":78,"ar":"مَنْ حَفَرَ حُفْرَةً لِأَخِيهِ وَقَعَ فِيهَا","tr":"man ḥafara ḥufratan li-akhīhi waqaʿa fīhā","meaning":"Whoever digs a pit for his brother falls into it.","insight":"A warning about scheming against others — the trap you set for someone else often catches you instead.","ex":"","exTr":""},{"day":79,"ar":"كَمَا تَدِينُ تُدَانُ","tr":"kamā tadīnu tudān","meaning":"As you deal [with others], so shall you be dealt with.","insight":"The Arabic 'karma' proverb — treatment given to others returns to you in kind, sooner or later.","ex":"","exTr":""},{"day":80,"ar":"الْحَدِيثُ ذُو شُجُونٍ","tr":"al-ḥadīthu dhū shujūn","meaning":"Conversation has many branches.","insight":"Said when a talk wanders naturally from one topic to another — one subject always pulls loose threads toward the next.","ex":"","exTr":""},{"day":81,"ar":"يَدٌ وَاحِدَةٌ لَا تُصَفِّقُ","tr":"yadun wāḥidatun lā tuṣaffiq","meaning":"One hand doesn't clap.","insight":"Used for disputes or failed cooperation — blame or credit is rarely one-sided; two hands are needed to make the sound.","ex":"","exTr":""},{"day":82,"ar":"مَنْ كَثُرَ مِزَاحُهُ اسْتُخِفَّ بِهِ","tr":"man kathura mizāḥuhu stukhiffa bih","meaning":"Whoever jokes too much is taken lightly.","insight":"A caution about excessive humor undermining one's dignity or authority in others' eyes.","ex":"","exTr":""},{"day":83,"ar":"آفَةُ الْعِلْمِ النِّسْيَانُ","tr":"āfatu l-ʿilmi n-nisyān","meaning":"The plague of knowledge is forgetting.","insight":"Used to justify revision and repetition in study — learning something once is meaningless if it isn't retained.","ex":"","exTr":""},{"day":84,"ar":"الْحِيلَةُ لِمَنْ لَا حِيلَةَ لَهُ","tr":"al-ḥīlatu li-man lā ḥīlata lah","meaning":"Resourcefulness is for the one who has no other option.","insight":"Praises ingenuity born of necessity — the cleverest solutions often come from those with no easy way out.","ex":"","exTr":""},{"day":85,"ar":"خَيْرُ جَلِيسٍ فِي الزَّمَانِ كِتَابٌ","tr":"khayru jalīsin fi z-zamāni kitāb","meaning":"The best companion in this age is a book.","insight":"A classical line elevating reading as a companion that never betrays, tires, or leaves — a favorite in literary and academic circles.","ex":"","exTr":""},{"day":86,"ar":"إِذَا صَحَّ الْعَزْمُ اتَّضَحَ السَّبِيلُ","tr":"idhā ṣaḥḥa l-ʿazmu ttaḍaḥa s-sabīl","meaning":"When resolve is sound, the path becomes clear.","insight":"A poetic line (attributed to al-Mutanabbi) meaning clarity often follows commitment, not the reverse — decide first, and the way appears.","ex":"","exTr":""},{"day":87,"ar":"لِكُلِّ دَاءٍ دَوَاءٌ يُسْتَطَبُّ بِهِ إِلَّا الْحَمَاقَةَ","tr":"li-kulli dāʾin dawāʾun yustaṭabbu bihi illā l-ḥamāqa","meaning":"Every illness has a cure except foolishness.","insight":"A sharp, humorous complaint — used when someone repeats an obviously bad decision despite every warning.","ex":"","exTr":""},{"day":88,"ar":"الْجَارُ الْجَنْبُ خَيْرٌ مِنَ الْأَخِ الْبَعِيدِ","tr":"al-jāru l-janbu khayrun mina l-akhi l-baʿīd","meaning":"A nearby neighbor is better than a distant brother.","insight":"Values proximity and daily presence over blood ties from afar — closeness often matters more than kinship in practice.","ex":"","exTr":""},{"day":89,"ar":"عِنْدَ الِامْتِحَانِ يُكْرَمُ الْمَرْءُ أَوْ يُهَانُ","tr":"ʿinda l-imtiḥāni yukramu l-marʾu aw yuhān","meaning":"In the test, a person is honored or disgraced.","insight":"Said whenever a real challenge arrives — hardship or crisis is what finally reveals a person's true character.","ex":"","exTr":""},{"day":90,"ar":"مَنْ زَرَعَ حَصَدَ","tr":"man zaraʿa ḥaṣad","meaning":"Whoever plants, harvests.","insight":"A concise agricultural metaphor for cause and effect — actions, good or bad, inevitably grow into their matching outcome.","ex":"","exTr":""}]},{"id":4,"nameAr":"لغة الروح","nameEn":"Language of the Soul","icon":"🕊️","descAr":"مشاعر ومفاهيم إنسانية دقيقة لا تجد لها ترجمة واحدة في أي لغة أخرى.","descEn":"One precise emotional or psychological word a day — feelings other languages need a whole sentence to describe.","entries":[{"day":91,"ar":"وَحْشَة","tr":"waḥsha","meaning":"The specific unease of missing someone's presence","insight":"Not general loneliness — waḥsha is the felt absence of a particular person, the space they used to fill now noticeably empty.","ex":"أحسست بوحشة بعد سفره.","exTr":"I felt his-absence-ache after he traveled."},{"day":92,"ar":"أُنْس","tr":"ʾuns","meaning":"The warm ease of comforting company","insight":"Uns is the opposite of waḥsha — the specific calm and lightness a beloved presence brings, distinct from general happiness.","ex":"في مجلسه أُنْس لا يوصف.","exTr":"In his gathering is an indescribable comforting ease."},{"day":93,"ar":"شَوْق","tr":"shawq","meaning":"Yearning for someone still expected to return","insight":"Shawq implies hope of reunion — it's longing aimed at a future meeting, not grief over something permanently lost.","ex":"يزداد شوقي كلما طال البعد.","exTr":"My longing grows the longer the distance lasts."},{"day":94,"ar":"حَنِين","tr":"ḥanīn","meaning":"A tender pull toward the past or a place","insight":"Haneen is nostalgia with warmth, not regret — a soft ache for something once had, remembered fondly rather than mourned bitterly.","ex":"يعيش على حنين أيام الطفولة.","exTr":"He lives on nostalgia for his childhood days."},{"day":95,"ar":"غَيْرَة","tr":"ghayra","meaning":"Protective jealousy over someone or something precious","insight":"Distinct from possessive jealousy — ghayrah is the instinct to guard what one loves from harm or disrespect, seen as noble, not petty.","ex":"غَيرته على أهله محمودة.","exTr":"His protectiveness over his family is praiseworthy."},{"day":96,"ar":"هَيْبَة","tr":"hayba","meaning":"Awe mixed with respectful restraint","insight":"Haybah is the quality some people carry that makes others instinctively lower their voice or watch their words — respect earned by presence, not fear.","ex":"دخل المجلس وله هيبة توقف الأنفاس.","exTr":"He entered the room with a presence that stilled every breath."},{"day":97,"ar":"وَجَل","tr":"wajal","meaning":"A trembling reverent fear of the sacred","insight":"Wajal is a fear that occurs specifically before something holy or momentous — a shiver of the heart, not ordinary anxiety.","ex":"وَجِلَتْ قلوبهم عند ذكر الله.","exTr":"Their hearts trembled with reverent fear at the mention of God."},{"day":98,"ar":"خَجَل","tr":"khajal","meaning":"A blushing bashfulness before others","insight":"Khajal is milder and more physical than shame — the warmth in the face when suddenly the center of attention or praised too directly.","ex":"احمرّ وجهه من الخجل.","exTr":"His face reddened from bashfulness."},{"day":99,"ar":"غِبْطَة","tr":"ghibṭa","meaning":"Admiring someone's blessing without wishing it removed","insight":"Unlike envy (ḥasad), ghibṭah wants the same good for oneself while being glad the other person has it — envy without any malice.","ex":"نظر إليه بغبطة لا حسد.","exTr":"He looked at him with admiration, not envy."},{"day":100,"ar":"أَسَى","tr":"ʾasā","meaning":"A deep, quiet sorrow that settles rather than erupts","insight":"Asaa is grief turned inward — heavier and more permanent-feeling than sadness, closer to mourning something irreversible.","ex":"غلب عليه الأسى بعد الخبر.","exTr":"Deep sorrow overtook him after the news."},{"day":101,"ar":"لَوْعَة","tr":"lawʿa","meaning":"A burning ache of the heart from loss or love","insight":"From the root meaning 'to scorch' — law'ah is heartache imagined as literal fire in the chest, intense and consuming.","ex":"لوعة الفراق لا تُنسى.","exTr":"The burning ache of separation is never forgotten."},{"day":102,"ar":"فَرَاغ","tr":"farāgh","meaning":"An emptiness that follows a presence now gone","insight":"Faragh describes the specific hollow left behind after someone or something that filled a life disappears — a void with a shape.","ex":"تركت رحيلها فراغًا كبيرًا.","exTr":"Her departure left a great emptiness."},{"day":103,"ar":"غُرْبَة","tr":"ghurba","meaning":"The ache of being a stranger, even at home","insight":"Ghurbah is more than homesickness — it can strike even among one's own people, an unsettled feeling of not-quite-belonging.","ex":"شعر بالغربة رغم عودته لوطنه.","exTr":"He felt like a stranger despite returning to his homeland."},{"day":104,"ar":"أَسَف","tr":"ʾasaf","meaning":"A gentle regret tinged with sympathy","insight":"Asaf is softer than nadam — closer to 'I'm sorry that happened' than 'I regret what I did', often directed outward with compassion.","ex":"أبدى أسفه لما حدث لها.","exTr":"He expressed his regret for what happened to her."},{"day":105,"ar":"نَدَم","tr":"nadam","meaning":"Sharp remorse over one's own choice","insight":"Unlike asaf, nadam is inward-facing and specifically about a decision you made that you now wish you hadn't.","ex":"ندم على قسوته معها.","exTr":"He regretted his harshness with her."},{"day":106,"ar":"رَجَاء","tr":"rajāʾ","meaning":"Hope shadowed by a trace of fear","insight":"Raja' differs from amal — it's hope for something not fully certain, carrying an undertone of anxious hoping-against-doubt.","ex":"يعيش بين الرجاء والخوف.","exTr":"He lives between hope and fear."},{"day":107,"ar":"تَشَوُّق","tr":"tashawwuq","meaning":"Restless anticipation for something about to arrive","insight":"Tashawwuq is shawq intensified into visible eagerness — the fidgeting, watching-the-clock anticipation just before a reunion.","ex":"تشوّقت لرؤية أطفالها بعد السفر.","exTr":"She was eagerly anticipating seeing her children after the trip."},{"day":108,"ar":"وَلَه","tr":"walah","meaning":"A love so consuming it borders on bewilderment","insight":"Walah describes infatuation intense enough to distract someone from everything else — love that overwhelms clear thinking.","ex":"أصابه الوله من كثرة الشوق.","exTr":"Infatuation overtook him from the intensity of longing."},{"day":109,"ar":"كَمَد","tr":"kamad","meaning":"Grief held silently inside, never expressed","insight":"Kamad is sorrow deliberately or helplessly suppressed — pain that has nowhere to go, festering quietly rather than being voiced.","ex":"مات كمدًا على فراق ابنه.","exTr":"He died of suppressed grief over separation from his son."},{"day":110,"ar":"حَسْرَة","tr":"ḥasra","meaning":"A sighing regret over an opportunity missed","insight":"Hasrah is the specific ache of looking back at a chance that's now gone forever — often paired physically with a heavy sigh.","ex":"تنهّد بحسرة على ما فاته.","exTr":"He sighed with regret over what he had missed."},{"day":111,"ar":"عِتَاب","tr":"ʿitāb","meaning":"Gentle reproach exchanged between people who love each other","insight":"Itab is criticism that actually signals closeness — you only bother with itab toward someone whose relationship with you still matters.","ex":"بينهما عتاب لا يفسد للود قضية.","exTr":"Between them is reproach that never spoils their affection."},{"day":112,"ar":"جَفَاء","tr":"jafāʾ","meaning":"A cold distancing after former closeness","insight":"Jafa' is emotional withdrawal, often unexplained, from someone who was once warm — a chill replacing what used to be near.","ex":"لاحظت جفاءه بعد آخر لقاء.","exTr":"She noticed his coldness after their last meeting."},{"day":113,"ar":"إِبَاء","tr":"ʾibāʾ","meaning":"A dignified refusal that protects one's honor","insight":"Ibaa' is proud rejection — refusing something not out of stubbornness but because accepting it would compromise one's dignity.","ex":"رفض الذلّ بإباء شديد.","exTr":"He refused humiliation with fierce dignity."},{"day":114,"ar":"مُرُوءَة","tr":"murūʾa","meaning":"Chivalrous virtue that goes beyond what's required","insight":"Muru'ah is doing the honorable thing even when no rule demands it — a self-imposed code of decency and generosity.","ex":"من مروءته أنه لا يرد سائلًا.","exTr":"Part of his chivalry is that he never turns away someone asking for help."},{"day":115,"ar":"نَخْوَة","tr":"nakhwa","meaning":"A fierce, protective sense of honor","insight":"Nakhwah is the surge that makes someone defend the vulnerable or stand up against injustice, almost involuntarily.","ex":"تحرّكت نخوته لنصرة المظلوم.","exTr":"His sense of honor stirred to help the wronged one."},{"day":116,"ar":"أَرِيحِيَّة","tr":"ʾarīḥiyya","meaning":"An easy, generous openness of spirit","insight":"Areehiyyah describes someone whose generosity flows without hesitation or calculation — spirit at rest, giving without effort.","ex":"استقبلنا بأريحية نادرة.","exTr":"He welcomed us with rare, easy generosity."},{"day":117,"ar":"دِفْء","tr":"difʾ","meaning":"Emotional warmth, not just physical heat","insight":"Dif' extends naturally from temperature to feeling — a home, a voice, or a welcome can carry dif' the same way a fire does.","ex":"شعرت بدفء كلماته.","exTr":"She felt the warmth of his words."},{"day":118,"ar":"سَكَن","tr":"sakan","meaning":"A calm dwelling-place found in another person","insight":"From the same root as sakinah, sakan describes a spouse or loved one as literally a place the restless soul comes to rest in.","ex":"جعل الله بينكما مودة وسكنًا.","exTr":"God placed between you affection and a place of rest."},{"day":119,"ar":"أُلْفَة","tr":"ʾulfa","meaning":"A comfortable familiarity built over shared time","insight":"Ulfah is the ease that grows only through repeated closeness — you can't manufacture it quickly, it accumulates.","ex":"نشأت بينهما ألفة مع مرور السنين.","exTr":"A familiarity grew between them over the passing years."},{"day":120,"ar":"خِلَّة","tr":"khilla","meaning":"A close friendship bond, deep and exclusive","insight":"Khillah is friendship intimate enough to be almost singular — classical usage reserves it for a bond as close as the one between Ibrahim and God.","ex":"اتّخذه الله خليلًا.","exTr":"God took him as a close, devoted friend."}]},{"id":5,"nameAr":"عبارات الحياة","nameEn":"Real-Life Power Phrases","icon":"💬","descAr":"عبارة محكية واحدة كل يوم من لهجات مختلفة — تجعلك تبدو وكأنك عشت هناك.","descEn":"One spoken phrase a day from real dialects — the kind that makes you sound like you've lived there.","entries":[{"day":121,"ar":"الله يعطيك العافية","tr":"Allah yaʿṭīk al-ʿāfya","meaning":"Levantine — May God give you wellness","insight":"Said to anyone working — a shopkeeper, a driver, a laborer — as both a thank-you and a blessing for their effort.","ex":"","exTr":""},{"day":122,"ar":"تِسْلَم إِيدَك","tr":"tislam īdak","meaning":"Egyptian/Levantine — Bless your hands","insight":"Literally 'may your hand be safe' — said to whoever cooked, built, or made something with their own hands for you.","ex":"","exTr":""},{"day":123,"ar":"عَ راسي","tr":"ʿa rāsī","meaning":"Levantine — On my head (of course!)","insight":"An enthusiastic yes to a request — 'consider it done, I'll carry it on my own head' to show how gladly you accept.","ex":"","exTr":""},{"day":124,"ar":"خَاطِرِك غالي","tr":"khāṭrak ghālī","meaning":"Khaliji (Gulf) — Your feelings/wish are precious to me","insight":"Said when granting someone's request or preference specifically because it matters to them, prioritizing their comfort.","ex":"","exTr":""},{"day":125,"ar":"الله يخليك","tr":"Allah yikhallīk","meaning":"Pan-Arab — May God preserve you","insight":"A soft, common way to say please or thank you, literally wishing the other person continued well-being.","ex":"","exTr":""},{"day":126,"ar":"ما قَصَّرت","tr":"mā qaṣṣart","meaning":"Pan-Arab — You didn't fall short","insight":"The standard response to someone's help or gift — acknowledging they gave their full effort, nothing was lacking.","ex":"","exTr":""},{"day":127,"ar":"بيتك بيتي","tr":"baytak baytī","meaning":"Pan-Arab — Your house is my house","insight":"Classic Arab hospitality phrase, said to a guest to make them feel entirely at home, no formality required.","ex":"","exTr":""},{"day":128,"ar":"الله يبارك فيك","tr":"Allah yubārik fīk","meaning":"Pan-Arab — God bless you [with barakah]","insight":"Said in genuine appreciation, wishing that increase and blessing specifically accompany the person, not just goodwill.","ex":"","exTr":""},{"day":129,"ar":"حَيَّاك الله","tr":"ḥayyāk Allah","meaning":"Pan-Arab/Khaliji — Welcome (may God grant you life)","insight":"A warmer alternative to 'ahlan' — literally invoking life itself as a greeting to someone arriving.","ex":"","exTr":""},{"day":130,"ar":"الله يُسَلِّمَك","tr":"Allah yisallmak","meaning":"Pan-Arab — May God keep you safe","insight":"Said to someone heading into travel, illness recovery, or any risk — wishing their safety directly from God.","ex":"","exTr":""},{"day":131,"ar":"يعطيك العُمر","tr":"yaʿṭīk al-ʿumur","meaning":"Khaliji — May He give you [long] life","insight":"A Gulf way of thanking someone deeply, wishing them added years in direct exchange for their kindness.","ex":"","exTr":""},{"day":132,"ar":"خُذ راحتك","tr":"khudh rāḥtak","meaning":"Pan-Arab — Take your ease","insight":"Said to put a guest or visitor at ease — don't rush, don't stand on formality, be comfortable here.","ex":"","exTr":""},{"day":133,"ar":"وَلا يهمّك","tr":"wa lā yihimmak","meaning":"Levantine/Gulf — Don't let it worry you","insight":"A reassurance that a problem is handled or unimportant — releasing the other person from concern about it.","ex":"","exTr":""},{"day":134,"ar":"الله كريم","tr":"Allah karīm","meaning":"Pan-Arab — God is generous","insight":"Said as comfort in uncertainty — reminding someone (or oneself) that provision or relief is still possible, from God's generosity.","ex":"","exTr":""},{"day":135,"ar":"عَنْ جِدّ؟","tr":"ʿan jidd?","meaning":"Levantine — For real?/Seriously?","insight":"A casual, spoken-only way to express surprise or ask for confirmation, used constantly in everyday conversation.","ex":"","exTr":""},{"day":136,"ar":"يَلّا بينا","tr":"yalla bīnā","meaning":"Egyptian — Come on, let's go","insight":"An energetic way to move a group into action — 'yalla' alone means 'come on', 'bina' adds 'with us'.","ex":"","exTr":""},{"day":137,"ar":"إن شاء الله بخير","tr":"in shāʾ Allah bikhayr","meaning":"Pan-Arab — God willing, all is well","insight":"A gentle, hopeful reply when asked how something or someone is doing, especially amid uncertainty.","ex":"","exTr":""},{"day":138,"ar":"الله يجازيك خير","tr":"Allah yjāzīk khayr","meaning":"Pan-Arab — May God reward you with good","insight":"A heartfelt thank-you that redirects the debt of gratitude to God, asking Him to repay the kindness.","ex":"","exTr":""},{"day":139,"ar":"تِكْرَم عَينك","tr":"tikram ʿaynak","meaning":"Iraqi — Your eye is honored [of course]","insight":"An Iraqi way of graciously agreeing to something or thanking someone, honoring them in the reply itself.","ex":"","exTr":""},{"day":140,"ar":"ماشي الحال","tr":"māshī l-ḥāl","meaning":"Moroccan/Pan-Arab — Things are getting by","insight":"A modest, realistic answer to 'how are you' — not great, not terrible, simply managing.","ex":"","exTr":""},{"day":141,"ar":"كله تمام","tr":"kullu tamām","meaning":"Egyptian — Everything's perfect","insight":"A breezy reassurance that all is fine — used both sincerely and as a casual social nicety.","ex":"","exTr":""},{"day":142,"ar":"الله لا يحرمنا منك","tr":"Allah lā yiḥrimnā minnak","meaning":"Pan-Arab — May God not deprive us of you","insight":"Said to someone valued in your life, expressing how much their continued presence means to you.","ex":"","exTr":""},{"day":143,"ar":"صِحَّة وعافية","tr":"ṣiḥḥa w ʿāfya","meaning":"Pan-Arab — Health and wellness","insight":"The standard reply to someone thanking the cook after a meal — a two-part blessing covering both body and vitality.","ex":"","exTr":""},{"day":144,"ar":"دام عِزّك","tr":"dām ʿizzak","meaning":"Khaliji — May your honor endure","insight":"A Gulf way of thanking someone that specifically wishes their dignity and standing remain lasting.","ex":"","exTr":""},{"day":145,"ar":"يِسْعَد مَساك","tr":"yisʿad masāk","meaning":"Khaliji — May your evening be blessed","insight":"The customary reply to 'good evening' in the Gulf, adding a wish of happiness onto the greeting.","ex":"","exTr":""},{"day":146,"ar":"الله يفرحك","tr":"Allah yfarriḥak","meaning":"Pan-Arab — May God bring you joy","insight":"A warm, common blessing wished upon someone going through something hard, or simply as an affectionate goodbye.","ex":"","exTr":""},{"day":147,"ar":"بالتوفيق","tr":"bit-tawfīq","meaning":"Pan-Arab — Wishing you success","insight":"The all-purpose 'good luck' — said before an exam, interview, trip, or any attempt at something important.","ex":"","exTr":""},{"day":148,"ar":"عَ قَدّ الحال","tr":"ʿa qadd il-ḥāl","meaning":"Levantine — Making do with what's available","insight":"Used to describe modest hospitality or means offered honestly, without pretending it's more than it is.","ex":"","exTr":""},{"day":149,"ar":"مِن عيوني","tr":"min ʿyūnī","meaning":"Levantine — From my eyes [gladly, with pleasure]","insight":"An enthusiastic, warm way to say 'my pleasure' to a request — offering help as precious as one's own eyes.","ex":"","exTr":""},{"day":150,"ar":"الله يسعدك","tr":"Allah yisʿidak","meaning":"Pan-Arab — May God make you happy","insight":"A closing blessing, often said as a farewell or in gratitude, wishing lasting happiness on the other person.","ex":"","exTr":""}]},{"id":6,"nameAr":"فن البيان","nameEn":"The Art of Eloquence","icon":"🖋️","descAr":"أداة بلاغية واحدة كل يوم — كيف يبني العرب جملة تُحدث أثرًا لا يُنسى.","descEn":"One rhetorical tool a day — how Arabic builds a sentence that leaves a mark.","entries":[{"day":151,"ar":"إِنَّ","tr":"inna","meaning":"The emphatic 'indeed' that opens a claim with confidence","insight":"Placing inna at the start of a sentence signals the speaker is certain and wants the listener to be certain too — a verbal underline.","ex":"إنّ مع العسر يسرًا.","exTr":"Indeed, with hardship comes ease."},{"day":152,"ar":"لَام التَّوْكِيد","tr":"lām at-tawkīd","meaning":"A single letter (ل) that intensifies a future promise","insight":"Prefixing لَـ to a future verb turns a plain statement into a vow-like certainty: 'la-asaʿā' means not 'I will try' but 'I will surely strive'.","ex":"لأجتهدنّ في عملي.","exTr":"I will most certainly strive in my work."},{"day":153,"ar":"الْقَسَم","tr":"al-qasam","meaning":"Swearing an oath to anchor a statement in weight","insight":"Opening with 'wallahi' or 'la-ʿamruka' before a claim borrows the seriousness of an oath, making casual speech suddenly solemn.","ex":"والله لأفعلنّ ذلك.","exTr":"By God, I will certainly do that."},{"day":154,"ar":"الطِّبَاق","tr":"aṭ-ṭibāq","meaning":"Pairing two opposites in one line for tension","insight":"Placing contrasts side by side — life and death, day and night — creates a rhythmic push-pull that makes a line memorable.","ex":"يُحيي ويُميت.","exTr":"He gives life and causes death."},{"day":155,"ar":"الْجِنَاس","tr":"al-jinās","meaning":"Using two similar-sounding words with different meanings","insight":"Jinas creates a musical echo in a sentence, where the ear catches a rhyme-like repetition that the mind then has to unpack for meaning.","ex":"ساعة وما فيها ساعة.","exTr":"An hour, yet not everything in it is [worth] an hour [of value]."},{"day":156,"ar":"السَّجْع","tr":"as-sajʿ","meaning":"Rhymed prose that gives speech a drumbeat","insight":"Ending successive phrases with matching sounds (without full poetic meter) turns ordinary prose into something rhythmic and quotable.","ex":"من طلب العُلا سهر الليالي، ومن رام المجد جانب الأماني.","exTr":"Whoever seeks the heights stays up through the nights, and whoever aims for glory sets aside idle wishes."},{"day":157,"ar":"الِاسْتِفْهَام الْإِنْكَارِيّ","tr":"al-istifhām al-inkārī","meaning":"A question asked to make a point, not to get an answer","insight":"A rhetorical question ('Is it not clear?') is more forceful than a flat statement — it forces the listener to silently agree.","ex":"أليس الصبح بقريب؟","exTr":"Is the morning not near?"},{"day":158,"ar":"التَّكْرَار","tr":"at-takrār","meaning":"Deliberate repetition that hammers an idea home","insight":"Repeating a word or phrase within a passage isn't redundancy in Arabic rhetoric — it's a tool that builds emotional and rhythmic weight.","ex":"فإنّ مع العسر يسرًا، إنّ مع العسر يسرًا.","exTr":"So indeed, with hardship comes ease; indeed, with hardship comes ease."},{"day":159,"ar":"الْحَذْف","tr":"al-ḥadhf","meaning":"Leaving a word out so the mind supplies it, for impact","insight":"Skilled Arabic sometimes omits an expected word entirely, trusting the listener to feel its absence — creating drama through silence.","ex":"فصبرٌ جميل.","exTr":"So [my course is] beautiful patience [predicate implied]."},{"day":160,"ar":"التَّقْدِيم وَالتَّأْخِير","tr":"at-taqdīm wa t-taʾkhīr","meaning":"Moving a word forward in the sentence to spotlight it","insight":"Arabic's flexible word order lets a speaker front the most important element, even out of normal subject-verb-object sequence, for emphasis.","ex":"إيّاك نعبد وإيّاك نستعين.","exTr":"You [alone] we worship, and You [alone] we ask for help."},{"day":161,"ar":"الْكِنَايَة","tr":"al-kināya","meaning":"Saying something indirectly, through a hinting image","insight":"Instead of stating a fact plainly, kinaya implies it through a related image — 'tall of the ash-pot' hints at generosity without saying the word.","ex":"فلان كثير رماد القدر.","exTr":"So-and-so has much ash beneath his cooking pot [i.e., he's very generous, always cooking for guests]."},{"day":162,"ar":"الِاسْتِعَارَة","tr":"al-istiʿāra","meaning":"A metaphor that borrows one thing's identity for another","insight":"Istiʿarah doesn't just compare — it fully renames one thing as another, letting an idea 'become' an image rather than merely resemble it.","ex":"رأيت أسدًا يتكلم.","exTr":"I saw a lion speaking [meaning a very brave man]."},{"day":163,"ar":"التَّشْبِيه","tr":"at-tashbīh","meaning":"An explicit simile joining two things with a linking word","insight":"Using كَـ (like) or كَأَنَّ (as if) to compare two things directly — softer and more transparent than metaphor, but still vivid.","ex":"قلبه كالحجر.","exTr":"His heart is like stone."},{"day":164,"ar":"صِيغَة الْمُبَالَغَة","tr":"ṣīghat al-mubālagha","meaning":"Special word patterns built specifically to intensify meaning","insight":"Patterns like فَعَّال or مِفْعَال don't just describe an action, they describe someone who does it habitually and to an extreme degree.","ex":"هو رجل صبّار وشكّار.","exTr":"He is a man of great patience and great gratitude."},{"day":165,"ar":"الْإِطْنَاب","tr":"al-iṭnāb","meaning":"Deliberately expanding a statement with extra, meaningful detail","insight":"Unlike padding, itnab adds detail on purpose to deepen an emotional or persuasive effect, rather than being economical.","ex":"ونادى نوح ربه فقال: ربّ إنّ ابني من أهلي.","exTr":"And Noah called to his Lord and said: My Lord, indeed my son is of my family."},{"day":166,"ar":"الْإِيجَاز","tr":"al-ʾījāz","meaning":"Saying the most with the fewest possible words","insight":"The opposite tool to itnab — ijaz is prized in Arabic as the mark of true eloquence: total meaning compressed into minimal words.","ex":"خير الكلام ما قلّ ودلّ.","exTr":"The best speech is that which is brief and clear."},{"day":167,"ar":"الْجُمْلَة الِاسْمِيَّة","tr":"al-jumla al-ismiyya","meaning":"A sentence starting with a noun, implying a lasting state","insight":"Beginning with a noun instead of a verb frames the meaning as stable and ongoing, not a single momentary event.","ex":"الله غفورٌ رحيمٌ.","exTr":"God is [continuously, as a nature] Forgiving, Merciful."},{"day":168,"ar":"الْجُمْلَة الْفِعْلِيَّة","tr":"al-jumla al-fiʿliyya","meaning":"A sentence starting with a verb, implying a single occurring event","insight":"Opening with the verb instead frames the meaning as an event happening at a point in time, not a fixed permanent trait.","ex":"غفر الله له.","exTr":"God forgave him [a specific act, at a point in time]."},{"day":169,"ar":"أَمَّا... فَ","tr":"ammā... fa","meaning":"A topic-comment structure that isolates one item for focus","insight":"This pattern pulls a subject out front to say 'as for X, then...' — used to contrast or single something out clearly from a group.","ex":"أمّا الذين آمنوا فيعلمون أنه الحق.","exTr":"As for those who believed, they know that it is the truth."},{"day":170,"ar":"لَوْلَا","tr":"lawlā","meaning":"'If not for...' — a phrase that credits an unseen cause","insight":"Lawla opens a sentence to acknowledge that something depended entirely on a prior condition, often used to express gratitude implicitly.","ex":"لولا الله ما اهتدينا.","exTr":"If not for God, we would not have been guided."},{"day":171,"ar":"كَأَنَّ","tr":"ka-ʾanna","meaning":"'As if' — a vivid simile particle that paints a scene","insight":"Ka'anna lets a speaker present an image so strongly that the listener briefly pictures it as real, even while knowing it's a comparison.","ex":"كأنّ وجهها القمر.","exTr":"It's as if her face is the moon."},{"day":172,"ar":"لَيْت","tr":"layta","meaning":"'If only' — a wish for something unlikely or impossible","insight":"Layta introduces a wish the speaker knows probably won't come true, carrying a note of longing or gentle despair.","ex":"ليت الشباب يعود يومًا.","exTr":"If only youth would return one day."},{"day":173,"ar":"لَعَلَّ","tr":"laʿalla","meaning":"'Perhaps' — a hopeful particle that softens a hard claim","insight":"Laʿalla opens space for uncertainty while still leaning toward hope, often used before something the speaker wishes were true.","ex":"لعلّ الله يجعل بعد عسر يسرًا.","exTr":"Perhaps God will bring ease after hardship."},{"day":174,"ar":"بَل","tr":"bal","meaning":"'Rather' — a correction particle that reverses course mid-sentence","insight":"Bal lets a speaker retract or upgrade a previous statement within the same breath, adding drama through self-correction.","ex":"ما ظلمهم الله، ولكن كانوا أنفسهم يظلمون.","exTr":"God did not wrong them; rather, they wronged themselves."},{"day":175,"ar":"إِذْ","tr":"idh","meaning":"'When/at the time that' — a particle that drops the listener into a scene","insight":"Idh pulls a story into the present moment of narration, often used to suddenly place the listener inside a remembered scene.","ex":"واذكر إذ قال ربك للملائكة.","exTr":"And remember when your Lord said to the angels."},{"day":176,"ar":"حَتَّى","tr":"ḥattā","meaning":"'Until/even' — a particle whose surprise use signals emphasis","insight":"Beyond 'until', hatta can mean 'even', introducing the most extreme or surprising example last, for maximum rhetorical punch.","ex":"سلامٌ هي حتى مطلع الفجر.","exTr":"Peace it is, until [even up to] the rise of dawn."},{"day":177,"ar":"لَام الِابْتِدَاء","tr":"lām al-ibtidāʾ","meaning":"An opening ل that stakes an emphatic claim from the first word","insight":"Placed at the very start of a sentence on the subject itself, this lam declares certainty before the sentence has even unfolded.","ex":"لأنتَ الصادقُ الأمين.","exTr":"You are indeed the truthful, trustworthy one."},{"day":178,"ar":"نُون التَّوْكِيد","tr":"nūn at-tawkīd","meaning":"An emphatic ن ending a verb to make a vow-like promise","insight":"Adding -anna or -an to a verb (لأفعلَنّ) converts an ordinary intention into something closer to a sworn commitment.","ex":"لأصبرنّ على الأذى.","exTr":"I will most certainly endure the harm patiently."},{"day":179,"ar":"الْفَصْل وَالْوَصْل","tr":"al-faṣl wa l-waṣl","meaning":"Deciding when to link clauses with 'and' — or deliberately not to","insight":"Classical rhetoric treats the choice to connect two clauses with و, or to leave them separate, as a meaningful decision, not a grammar afterthought.","ex":"جاء الحقّ، زهق الباطل.","exTr":"Truth has come; falsehood has vanished [no 'and' — for dramatic, sudden effect]."},{"day":180,"ar":"خَاتِمَة الدُّعَاء","tr":"khātimat ad-duʿāʾ","meaning":"Closing a statement with a short prayer for lasting resonance","insight":"Ending a sentence or speech with a brief invocation — 'wallahu aʿlam', 'rabbanā taqabbal' — leaves the listener with a note of humility and blessing rather than a hard stop.","ex":"","exTr":""}]}];
+
+let completed = {};
+let currentMonth = 1;
+let flatDays = [];
+DATA.forEach(m => m.entries.forEach(e => flatDays.push(Object.assign({monthId:m.id, monthNameEn:m.nameEn, monthNameAr:m.nameAr}, e))));
+
+async function loadProgress(){
+  try{
+    const res = await window.storage.get('completed-days', false);
+    if(res && res.value){ completed = JSON.parse(res.value); }
+  }catch(e){ completed = {}; }
+  renderAll();
+}
+
+async function saveProgress(){
+  try{ await window.storage.set('completed-days', JSON.stringify(completed), false); }catch(e){}
+}
+
+function toggleDone(day){
+  if(completed[day]) delete completed[day];
+  else completed[day] = true;
+  saveProgress();
+  renderAll();
+}
+
+function renderTabs(){
+  const wrap = document.getElementById('tabsRow');
+  wrap.innerHTML = '';
+  DATA.forEach(m => {
+    const doneCount = m.entries.filter(e => completed[e.day]).length;
+    const tab = document.createElement('div');
+    tab.className = 'tab' + (m.id === currentMonth ? ' active' : '');
+    tab.innerHTML = `<span class="icon">${m.icon}</span><span>${m.nameEn}</span><span class="cnt">${doneCount}/30</span>`;
+    tab.onclick = () => { currentMonth = m.id; document.getElementById('searchInput').value=''; renderAll(); };
+    wrap.appendChild(tab);
+  });
+}
+
+function renderMonthHead(){
+  const m = DATA.find(x => x.id === currentMonth);
+  const wrap = document.getElementById('monthHeadWrap');
+  wrap.innerHTML = `
+    <div class="month-head">
+      <div class="eyebrow">Month ${m.id} of 6</div>
+      <h2>${m.icon} ${m.nameEn}</h2>
+      <div class="ar arabic">${m.nameAr}</div>
+      <div class="desc">${m.descEn}</div>
+    </div>`;
+}
+
+function renderGrid(filterText){
+  const grid = document.getElementById('dayGrid');
+  grid.innerHTML = '';
+  let list;
+  if(filterText && filterText.trim().length){
+    const q = filterText.trim().toLowerCase();
+    list = flatDays.filter(e =>
+      e.ar.toLowerCase().includes(q) ||
+      e.tr.toLowerCase().includes(q) ||
+      e.meaning.toLowerCase().includes(q) ||
+      e.insight.toLowerCase().includes(q)
+    );
+    document.getElementById('monthHeadWrap').style.display = 'none';
+  } else {
+    document.getElementById('monthHeadWrap').style.display = '';
+    const m = DATA.find(x => x.id === currentMonth);
+    list = m.entries;
+  }
+  list.forEach(e => {
+    const cell = document.createElement('div');
+    cell.className = 'day-cell' + (completed[e.day] ? ' done' : '');
+    cell.textContent = e.day;
+    cell.title = e.meaning;
+    cell.onclick = () => openCard(e.day);
+    grid.appendChild(cell);
+  });
+}
+
+function renderProgress(){
+  const total = 180;
+  const done = Object.keys(completed).length;
+  const pct = Math.round((done/total)*100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressLabel').textContent = `${done} of 180 days learned`;
+  const nextDay = flatDays.find(e => !completed[e.day]);
+  document.getElementById('dayCounterNum').textContent = nextDay ? nextDay.day : '✓';
+}
+
+function renderAll(){
+  renderTabs();
+  renderMonthHead();
+  renderGrid(document.getElementById('searchInput').value);
+  renderProgress();
+}
+
+let currentOpenDay = null;
+
+function openCard(day){
+  currentOpenDay = day;
+  const e = flatDays.find(x => x.day === day);
+  const card = document.getElementById('card');
+  const isDone = !!completed[e.day];
+  card.innerHTML = `
+    <div class="card-top">
+      <button class="card-close" onclick="closeCard()">✕</button>
+      <div class="day-tag">Day ${e.day} of 180</div>
+      <div class="month-tag">${e.monthNameEn} · ${e.monthNameAr}</div>
+    </div>
+    <div class="card-body">
+      <div class="card-ar arabic">${e.ar}</div>
+      <div class="card-tr">${e.tr}</div>
+      <div class="card-meaning">${e.meaning}</div>
+
+      <div class="card-section-label">Why it's powerful</div>
+      <div class="card-insight">${e.insight}</div>
+
+      ${e.ex ? `
+      <div class="card-section-label">In use</div>
+      <div class="card-example">
+        <div class="ex-ar arabic">${e.ex}</div>
+        <div class="ex-en">${e.exTr}</div>
+      </div>` : ``}
+
+      <div class="card-actions">
+        <button class="btn-nav btn" onclick="navDay(-1)">‹</button>
+        <button class="btn ${isDone ? 'btn-ghost' : 'btn-primary'}" onclick="toggleDone(${e.day}); openCard(${e.day});">
+          ${isDone ? '✓ Learned — mark undone' : 'Mark as learned'}
+        </button>
+        <button class="btn-nav btn" onclick="navDay(1)">›</button>
+      </div>
+    </div>
+  `;
+  document.getElementById('overlay').classList.add('open');
+}
+
+function navDay(dir){
+  let next = currentOpenDay + dir;
+  if(next < 1) next = 180;
+  if(next > 180) next = 1;
+  currentMonth = flatDays.find(e => e.day === next).monthId;
+  renderAll();
+  openCard(next);
+}
+
+function closeCard(){
+  document.getElementById('overlay').classList.remove('open');
+}
+document.getElementById('overlay').addEventListener('click', (ev) => {
+  if(ev.target.id === 'overlay') closeCard();
+});
+document.getElementById('searchInput').addEventListener('input', (ev) => renderGrid(ev.target.value));
+
+loadProgress();
+</script>
+</body>
+</html>
